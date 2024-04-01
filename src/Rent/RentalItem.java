@@ -6,11 +6,14 @@ public class RentalItem {
     private String description;
     private double price;
 
-    public RentalItem(String category, String name, String description, double price){
+    private boolean availability;
+
+    public RentalItem(String category, String name, String description, double price, boolean availability){
         this.category = category;
         this.name = name;
         this.description = description;
         this.price = price;
+        this.availability=availability;
 
 
     }
@@ -44,6 +47,14 @@ public class RentalItem {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public boolean getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(boolean availability) {
+        this.availability = availability;
     }
 }
 

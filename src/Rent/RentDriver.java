@@ -10,6 +10,8 @@ public class RentDriver {
     }
 
     public static void main(String[] args) {
+        Inventory inventory = new Inventory();
+        Menu menu = new Menu(inventory);
         Scanner sc = new Scanner(System.in);
 
         System.out.println("1.Signup");
@@ -18,7 +20,7 @@ public class RentDriver {
         System.out.println("4.Exit");
         System.out.println("Enter your choice :");
 
-        Menu m = new Menu();
+        Menu m = new Menu(inventory);
 
         int choice = sc.nextInt();
 
@@ -33,11 +35,13 @@ public class RentDriver {
             case 3 -> {
                 System.out.println("Welcome to RentEaseApp ");
                 System.out.println("You're using Guest Mode");
+                System.out.println("===========================");
                 categoryChoice = m.ItemList();
                 String categoryName;
                 switch (categoryChoice) {
                     case 1:
                         categoryName = "Electronics";
+                        m.ElectronicsMenu();
                         break;
                     case 2:
                         categoryName = "Rental Properties";
@@ -54,6 +58,11 @@ public class RentDriver {
                     case 6:
                         categoryName = "Books";
                         break;
+                    case 7:
+                        categoryName = "GoBack";
+                        System.exit(0);
+
+
                     default:
                         categoryName = "Unknown";
                         break;
@@ -61,7 +70,7 @@ public class RentDriver {
                 System.out.println("You chose: " + categoryName);
             }
             case 4 -> {
-                System.out.println("Thankyou ! Visit Again");
+                System.out.println("Thank you ! Visit Again");
                 System.exit(0);
             }
             default -> {

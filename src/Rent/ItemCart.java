@@ -27,7 +27,7 @@ public void addItem(RentalItem item){
         }
     }
 
-    public void bookItem(int index) {
+   /* public void bookItem(int index) {
         RentalItem item = CartList.get(index);
         if (item.getAvailability()) {
             item.setAvailability(false);
@@ -42,4 +42,6 @@ public void addItem(RentalItem item){
         item.setAvailability(true);
         System.out.println("Booking canceled for item: " + item.getName());
     }
+
+    */
 }

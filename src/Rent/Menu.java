@@ -9,7 +9,13 @@ public class Menu {
     private String email;
     private String password;
     private long mno;
-    Scanner sc=new Scanner(System.in);
+   private  Scanner sc=new Scanner(System.in);
+
+    private Inventory inventory;
+
+    public Menu(Inventory inventory) {
+        this.inventory = new Inventory();
+    }
 
     // Setters
     public void set_fname(String fname) {
@@ -154,4 +160,68 @@ public class Menu {
 
         return categoryNumber;
     }
-}
+
+    public void ElectronicsMenu() {
+        System.out.println("=================================");
+        System.out.println("Electronics Subcategories:");
+        System.out.println("1. Laptops");
+        System.out.println("2. Smartphones");
+        System.out.println("3. TVs");
+        System.out.println("4. Air Conditioners");
+        System.out.println("5. Go Back");
+        System.out.print("Enter your choice: ");
+
+        int choice = sc.nextInt();
+        switch (choice) {
+            case 1:
+                displayLaptops();
+                break;
+            case 2:
+             //   displaySmartphones();
+                break;
+            case 3:
+             ////   displayTVs();
+                break;
+            case 4:
+               // displayAirConditioners();
+                break;
+            case 5:
+                ItemList();
+                break;
+            default:
+                System.out.println("Invalid choice. Please try again.");
+        }
+    }
+
+        public void displayLaptops() {
+          //  Scanner scanner = new Scanner(System.in);
+            System.out.println("=================================");
+            System.out.println("Available Laptops:");
+            if (inventory.getItemsByCategory("Electronics.Laptop").isEmpty()) {
+                System.out.println("No laptops available.");
+            } else {
+                for (RentalItem item : inventory.getItemsByCategory("Electronics.Laptop")) {
+                    System.out.println(item.getName() + " - $" + item.getPrice());
+                }
+            }
+            System.out.println("=================================");
+            System.out.println("1. Add to Cart");
+            System.out.println("2. Go Back");
+            System.out.print("Enter your choice: ");
+
+            int select = sc.nextInt();
+            switch (select) {
+                case 1:
+                    // Add selected laptop to cart
+                    System.out.println("Added to Cart");
+                    break;
+                case 2:
+                    ElectronicsMenu();
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+
+    }
+

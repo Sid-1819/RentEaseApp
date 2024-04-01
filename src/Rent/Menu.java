@@ -9,6 +9,7 @@ public class Menu {
     private String email;
     private String password;
     private long mno;
+    Scanner sc=new Scanner(System.in);
 
     // Setters
     public void set_fname(String fname) {
@@ -62,7 +63,7 @@ public class Menu {
 
 
     public void signup() {
-        Scanner sc=new Scanner(System.in);
+
         System.out.println("Enter first name:");
         String fname= sc.next();
         set_fname(fname);
@@ -94,7 +95,7 @@ public class Menu {
 
     public void login() {
         if(fname != null) {
-            Scanner sc = new Scanner(System.in);
+
             System.out.println("Enter your choice ");
             System.out.println("1.Login with registered mobile ");
             System.out.println("2.Login with email id");
@@ -133,8 +134,8 @@ public class Menu {
         }
     }
 
-    public void ItemList() {
-        System.out.println("Welcome to RentEaseApp ");
+    public int ItemList() {
+        System.out.println("=================================");
         System.out.println("Enter your choice: ");
         System.out.println("1. Electronics: ");
         System.out.println("2. Rental Properties: ");
@@ -143,5 +144,14 @@ public class Menu {
         System.out.println("5. Home Decor: ");
         System.out.println("6. Books");
         System.out.println("7. Go Back");
+
+
+
+        System.out.print("Enter the category number: ");
+
+        int categoryNumber = sc.nextInt();
+
+
+        return categoryNumber;
     }
 }

@@ -26,4 +26,20 @@ public void addItem(RentalItem item){
             System.out.println(item.toString());
         }
     }
+
+    public void bookItem(int index) {
+        RentalItem item = CartList.get(index);
+        if (item.getAvailability()) {
+            item.setAvailability(false);
+            System.out.println("Booking successful for item: " + item.getName());
+        } else {
+            System.out.println("Item " + item.getName() + " is already booked.");
+        }
+    }
+
+    public void cancelBooking(int index) {
+        RentalItem item = CartList.get(index);
+        item.setAvailability(true);
+        System.out.println("Booking canceled for item: " + item.getName());
+    }
 }

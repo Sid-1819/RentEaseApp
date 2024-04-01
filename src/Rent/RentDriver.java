@@ -29,7 +29,7 @@ public class RentDriver {
                 m.login();
             }
             case 3 -> {
-                System.out.println("Welcome to Foodzapp ");
+                System.out.println("Welcome to RentEaseApp ");
                 System.out.println("You're using Guest Mode");
                 m.ItemList();
             }
